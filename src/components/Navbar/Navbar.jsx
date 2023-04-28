@@ -1,15 +1,23 @@
 import React from 'react'
 import './Navbar.scss'
 import { Link } from 'react-router-dom'
-
+import setSidebarOn from '../../store/sidebarSlice'
+import { useDispatch } from 'react-redux'
 
 const Navbar = () => {
+
+  const dispatch = useDispatch
+
   return (
     <nav className='navbar'>
 
       <div className="navbar-cnt flex flex-center">
         <div className="brand-and-toggler flex align-center">
-          <button className="sidebar-show-btn text-white" type="button">
+          <button 
+            className="sidebar-show-btn text-white" 
+            onClick={() => dispatch(setSidebarOn())}
+            type="button"
+          >
             <div className="fas fa-bars"></div>
           </button>
           <Link>
